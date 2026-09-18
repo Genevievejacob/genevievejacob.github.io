@@ -1,1 +1,1 @@
-# genevievejacob.github.io
+Genevieve Jacob - Customer Care + AI
