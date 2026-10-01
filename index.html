@@ -85,6 +85,66 @@
     font-size: 0.85rem;
     color: #777;
   }
+  form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+  }
+  form.contact-form label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text);
+  }
+  form.contact-form input,
+  form.contact-form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+  }
+  form.contact-form textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  form.contact-form button {
+    align-self: flex-start;
+    padding: 10px 22px;
+    background: var(--main);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  form.contact-form button:hover {
+    opacity: 0.85;
+  }
+  .form-msg {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: none;
+  }
+  .form-msg.success {
+    background: #e6f2ec;
+    color: var(--main);
+    border: 1px solid var(--main);
+  }
+  .form-msg.error {
+    background: #fbeaea;
+    color: #a33;
+    border: 1px solid #a33;
+  }
+  .field-error {
+    color: #a33;
+    font-size: 0.82rem;
+    margin-top: -6px;
+  }
 </style>
 </head>
 <body>
@@ -122,6 +182,30 @@
     </section>
 
     <section>
+      <h2>Get in Touch</h2>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdekjrlj" method="POST" novalidate>
+        <div>
+          <label for="name">Name</label><br>
+          <input type="text" id="name" name="name">
+          <div class="field-error" id="nameError"></div>
+        </div>
+        <div>
+          <label for="email">Email</label><br>
+          <input type="text" id="email" name="email">
+          <div class="field-error" id="emailError"></div>
+        </div>
+        <div>
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message"></textarea>
+          <div class="field-error" id="messageError"></div>
+        </div>
+        <button type="submit" id="submitBtn">Send Message</button>
+        <div class="form-msg success" id="successMsg">Thanks — I'll be in touch soon!</div>
+        <div class="form-msg error" id="errorMsg">Something went wrong sending that. Please try again, or email me directly at mygift128@gmail.com.</div>
+      </form>
+    </section>
+
+    <section>
       <h2>Coming Soon</h2>
       <div class="future-box">
         Future posts on AI-assisted customer service, and my FlyRank capstone project —
@@ -134,5 +218,76 @@
     </footer>
 
   </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function clearErrors() {
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('messageError').textContent = '';
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrors();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      let hasError = false;
+
+      if (!name) {
+        document.getElementById('nameError').textContent = 'Please enter your name.';
+        hasError = true;
+      }
+      if (!email) {
+        document.getElementById('emailError').textContent = 'Please enter your email.';
+        hasError = true;
+      } else if (!isValidEmail(email)) {
+        document.getElementById('emailError').textContent = 'That email doesn\'t look right — please check it.';
+        hasError = true;
+      }
+      if (!message) {
+        document.getElementById('messageError').textContent = 'Please write a short message.';
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+        .then(function (response) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          if (response.ok) {
+            form.reset();
+            successMsg.style.display = 'block';
+          } else {
+            errorMsg.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          errorMsg.style.display = 'block';
+        });
+    });
+  </script>
 </body>
 </html>
