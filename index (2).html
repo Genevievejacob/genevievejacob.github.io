@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genevieve Jacob — Customer Care + AI</title>
+<style>
+  :root {
+    --main: #2D6A4F;
+    --text: #1B1B1B;
+    --bg: #FAFAF8;
+    --accent: #E9C46A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+    color: var(--main);
+  }
+  .tagline {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+  p {
+    font-size: 1rem;
+  }
+  section {
+    margin-top: 40px;
+  }
+  h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--main);
+    border-bottom: 2px solid var(--main);
+    padding-bottom: 6px;
+  }
+  .links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .links li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    background: var(--main);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .links li a.accent {
+    background: var(--accent);
+    color: var(--text);
+  }
+  .links li a:hover {
+    opacity: 0.85;
+  }
+  .future-box {
+    border: 1px dashed #999;
+    border-radius: 8px;
+    padding: 20px;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  footer {
+    margin-top: 60px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+  }
+  form.contact-form label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text);
+  }
+  form.contact-form input,
+  form.contact-form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+    min-height: 44px;
+  }
+  form.contact-form textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  form.contact-form button {
+    align-self: flex-start;
+    padding: 10px 22px;
+    background: var(--main);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  form.contact-form button:hover {
+    opacity: 0.85;
+  }
+  .form-msg {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: none;
+  }
+  .form-msg.success {
+    background: #e6f2ec;
+    color: var(--main);
+    border: 1px solid var(--main);
+  }
+  .form-msg.error {
+    background: #fbeaea;
+    color: #a33;
+    border: 1px solid #a33;
+  }
+  .field-error {
+    color: #a33;
+    font-size: 0.82rem;
+    margin-top: -6px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <h1>Genevieve Jacob</h1>
+    <p class="tagline">Faster replies that still sound like you, not a robot.</p>
+
+    <p>
+      I'm a customer service professional at HealthGarde International, where I use AI to
+      handle the repeatable parts of support — drafting replies, checking tone and accuracy,
+      tracking down order issues — so I can move faster without sounding like a script. That
+      cut my average email response time from 20–30 minutes down to 10–12, while keeping my
+      customer satisfaction ratings steady. I still handle anything that needs real human
+      judgment myself: an upset customer gets me, not an automated reply. I'm currently
+      completing the FlyRank AI Internship Program, where I've built this site, a working AI
+      agent that triages customer emails, and a draft-critique-revise workflow — all wired
+      end to end, not just described.
+    </p>
+
+    <section>
+      <h2>Links</h2>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/genevieve-jacob" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Genevievejacob" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="./Genevieve_Jacob_CV.pdf" target="_blank" rel="noopener">CV / Resume</a></li>
+        <li><a href="https://calendly.com/d/dv72-fbb-ms6/one-off-meeting" target="_blank" rel="noopener" class="accent">Book a Call</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What I'm Building</h2>
+      <p>
+        A freelance customer service + AI portfolio, showing how AI-assisted workflows can
+        cut response time without losing the human touch — built step by step as part of
+        the FlyRank AI Internship.
+      </p>
+    </section>
+
+    <section>
+      <h2>Get in Touch</h2>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdekjrlj" method="POST" novalidate>
+        <div>
+          <label for="name">Name</label><br>
+          <input type="text" id="name" name="name">
+          <div class="field-error" id="nameError"></div>
+        </div>
+        <div>
+          <label for="email">Email</label><br>
+          <input type="text" id="email" name="email">
+          <div class="field-error" id="emailError"></div>
+        </div>
+        <div>
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message"></textarea>
+          <div class="field-error" id="messageError"></div>
+        </div>
+        <button type="submit" id="submitBtn">Send Message</button>
+        <div class="form-msg success" id="successMsg">Thanks — I'll be in touch soon!</div>
+        <div class="form-msg error" id="errorMsg">Something went wrong sending that. Please try again, or email me directly at mygift128@gmail.com.</div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Coming Soon</h2>
+      <div class="future-box">
+        Future posts on AI-assisted customer service, and my FlyRank capstone project —
+        including my official FlyRank completion badge once the program is finished.
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Genevieve Jacob
+    </footer>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function clearErrors() {
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('messageError').textContent = '';
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrors();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      let hasError = false;
+
+      if (!name) {
+        document.getElementById('nameError').textContent = 'Please enter your name.';
+        hasError = true;
+      }
+      if (!email) {
+        document.getElementById('emailError').textContent = 'Please enter your email.';
+        hasError = true;
+      } else if (!isValidEmail(email)) {
+        document.getElementById('emailError').textContent = 'That email doesn\'t look right — please check it.';
+        hasError = true;
+      }
+      if (!message) {
+        document.getElementById('messageError').textContent = 'Please write a short message.';
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+        .then(function (response) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          if (response.ok) {
+            form.reset();
+            successMsg.style.display = 'block';
+          } else {
+            errorMsg.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          errorMsg.style.display = 'block';
+        });
+    });
+  </script>
+</body>
+</html>
