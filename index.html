@@ -33,7 +33,7 @@
     font-size: 1.1rem;
     font-style: italic;
     margin-top: 0;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     color: var(--text);
   }
   p {
@@ -149,24 +149,69 @@
     font-size: 0.82rem;
     margin-top: -6px;
   }
+  .role {
+    font-size: 1.15rem;
+    margin: 0 0 6px;
+    color: var(--text);
+  }
+  .stat {
+    margin: 26px 0 0;
+  }
+  .stat .num {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.25;
+    color: var(--main);
+  }
+  .nb {
+    white-space: nowrap;
+  }
+  .stat .cap {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  .cta {
+    margin: 22px 0 0;
+  }
+  .cta a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 22px;
+    background: var(--main);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .cta a:hover {
+    opacity: 0.85;
+  }
 </style>
 </head>
 <body>
   <div class="wrap">
 
     <h1>Genevieve Jacob</h1>
+    <p class="role">Customer service professional for small businesses</p>
     <p class="tagline">Faster replies that still sound like you, not a robot.</p>
 
+    <p class="stat">
+      <span class="num"><span class="nb">20–30 min</span> → <span class="nb">10–12 min</span></span>
+      <span class="cap">per customer email at HealthGarde, with ratings holding steady</span>
+    </p>
+
+    <p class="cta"><a href="#contact">Message me</a></p>
+
     <p>
-      I'm a customer service professional at HealthGarde International, where I use AI to
-      handle the repeatable parts of support — drafting replies, checking tone and accuracy,
-      tracking down order issues — so I can move faster without sounding like a script. That
-      cut my average email response time from 20–30 minutes down to 10–12, while keeping my
-      customer satisfaction ratings steady. I still handle anything that needs real human
-      judgment myself: an upset customer gets me, not an automated reply. I'm currently
-      completing the FlyRank AI Internship Program, where I've built this site, a working AI
-      agent that triages customer emails, and a draft-critique-revise workflow — all wired
-      end to end, not just described.
+      At HealthGarde International I use AI for the repeatable parts of support — drafting
+      replies, checking tone, tracking down order issues — so I move faster without sounding
+      like a script. Anything that needs real judgment, like an upset customer, I handle
+      myself. I'm completing the FlyRank AI Internship, where I've built this site, an
+      email-triage agent, and a draft-critique-revise workflow.
     </p>
 
     <section>
@@ -188,7 +233,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Get in Touch</h2>
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdekjrlj" method="POST" novalidate>
         <div>
