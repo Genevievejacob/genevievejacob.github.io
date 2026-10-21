@@ -113,6 +113,12 @@
     min-height: 110px;
     resize: vertical;
   }
+
+  form.contact-form input,
+  form.contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+  }
   form.contact-form button {
     align-self: flex-start;
     padding: 10px 22px;
@@ -195,6 +201,52 @@
     font-size: 0.9rem;
     color: #555;
   }
+
+  /* Keep the Was → Now comparison readable on narrow screens. */
+  .stat .pair {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .stat .col {
+    min-width: 0;
+  }
+
+  .stat .lbl {
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 360px) {
+    .wrap {
+      padding: 36px 16px 64px;
+    }
+
+    .stat .old,
+    .stat .new,
+    .stat .arrow {
+      font-size: 1.15rem;
+    }
+
+    .stat .arrow {
+      margin: 0 2px;
+    }
+
+    .stat .pair {
+      column-gap: 2px;
+      row-gap: 8px;
+    }
+  }
+
+  /* Make keyboard focus visible for links, fields, and the submit button. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
   .cta {
     margin: 22px 0 0;
   }
@@ -264,22 +316,22 @@
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdekjrlj" method="POST" novalidate>
         <div>
           <label for="name">Name</label><br>
-          <input type="text" id="name" name="name">
-          <div class="field-error" id="nameError"></div>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+          <div class="field-error" id="nameError" aria-live="polite"></div>
         </div>
         <div>
           <label for="email">Email</label><br>
-          <input type="text" id="email" name="email">
-          <div class="field-error" id="emailError"></div>
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
+          <div class="field-error" id="emailError" aria-live="polite"></div>
         </div>
         <div>
           <label for="message">Message</label><br>
-          <textarea id="message" name="message"></textarea>
-          <div class="field-error" id="messageError"></div>
+          <textarea id="message" name="message" required></textarea>
+          <div class="field-error" id="messageError" aria-live="polite"></div>
         </div>
         <button type="submit" id="submitBtn">Send Message</button>
-        <div class="form-msg success" id="successMsg">Thanks — I'll be in touch soon!</div>
-        <div class="form-msg error" id="errorMsg">Something went wrong sending that. Please try again, or email me directly at mygift128@gmail.com.</div>
+        <div class="form-msg success" id="successMsg" role="status" aria-live="polite">Thanks — I'll be in touch soon!</div>
+        <div class="form-msg error" id="errorMsg" role="alert" aria-live="assertive">Something went wrong sending that. Please try again, or email me directly at mygift128@gmail.com.</div>
       </form>
     </section>
 
