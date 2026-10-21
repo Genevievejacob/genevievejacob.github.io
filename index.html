@@ -157,19 +157,41 @@
   .stat {
     margin: 26px 0 0;
   }
-  .stat .num {
+  .stat .col {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .stat .lbl {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #595959;
+  }
+  .stat .old,
+  .stat .new {
     display: block;
     font-size: 1.4rem;
-    font-weight: bold;
     line-height: 1.25;
-    color: var(--main);
   }
-  .nb {
-    white-space: nowrap;
+  .stat .old {
+    color: #595959;
+    text-decoration: line-through;
+  }
+  .stat .new {
+    color: var(--main);
+    font-weight: bold;
+  }
+  .stat .arrow {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 6px;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    color: #595959;
   }
   .stat .cap {
-    display: block;
-    margin-top: 4px;
+    margin: 8px 0 0;
     font-size: 0.9rem;
     color: #555;
   }
@@ -199,10 +221,14 @@
     <p class="role">Customer service professional for small businesses</p>
     <p class="tagline">Faster replies that still sound like you, not a robot.</p>
 
-    <p class="stat">
-      <span class="num"><span class="nb">20–30 min</span> → <span class="nb">10–12 min</span></span>
-      <span class="cap">per customer email at HealthGarde, with ratings holding steady</span>
-    </p>
+    <div class="stat">
+      <div class="pair">
+        <div class="col"><span class="lbl">Was</span><s class="old">20–30 min</s></div>
+        <span class="arrow" aria-hidden="true">→</span>
+        <div class="col"><span class="lbl">Now</span><strong class="new">10–12 min</strong></div>
+      </div>
+      <p class="cap">per customer email at HealthGarde, with ratings holding steady</p>
+    </div>
 
     <p class="cta"><a href="#contact">Message me</a></p>
 
